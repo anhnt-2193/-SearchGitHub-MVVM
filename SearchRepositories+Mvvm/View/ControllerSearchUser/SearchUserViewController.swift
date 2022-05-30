@@ -8,6 +8,7 @@
 import UIKit
 
 class SearchUserViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchUserTf: UITextField!
     @IBOutlet weak var lblCount: UILabel!
@@ -26,6 +27,7 @@ class SearchUserViewController: UIViewController {
 }
 
 private extension SearchUserViewController {
+    
     func setUpTableView() {
         tableView.register(UINib(nibName: SearchTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SearchTableViewCell.identifier)
         tableView.delegate = self
@@ -72,6 +74,7 @@ private extension SearchUserViewController {
 }
 
 extension SearchUserViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -90,6 +93,7 @@ extension SearchUserViewController: UITableViewDataSource {
 }
 
 extension SearchUserViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -111,6 +115,7 @@ extension SearchUserViewController: UITableViewDelegate {
 }
 
 extension SearchUserViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(handleSearchTextField), object: nil)
         print(textField.text)

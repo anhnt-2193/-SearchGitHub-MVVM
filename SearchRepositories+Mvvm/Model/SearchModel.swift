@@ -48,10 +48,3 @@ struct ItemModel: Codable {
     var move_speed: Int = 0
 }
 
-
-extension ItemModel: Equatable {
-    static func ==(lhs: ItemModel, rhs: ItemModel) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
-

@@ -11,7 +11,7 @@ pod 'AlamofireImage'
 pod 'RealmSwift', '~> 10.5.2'
 pod 'DropDown'
 pod 'SwiftyJSON', '~> 4.0'
-pod 'SDWebImage', '~> 5.0'
+pod 'SDWebImage'
   # Pods for SearchRepositories+Mvvm
 
   target 'SearchRepositories+MvvmTests' do

@@ -8,14 +8,17 @@
 import UIKit
 import RealmSwift
 class TabbarControllerViewController: UITabBarController {
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let navRepo = generateNav(vc: MainViewController(), title: "Repositories", image: UIImage(systemName: "cylinder.split.1x2")!, selectedImage: UIImage(systemName: "cylinder.split.1x2.fill")!)
-        let navUser = generateNav(vc: SearchUserViewController(), title: "User", image: UIImage(systemName: "person.circle")!, selectedImage: UIImage(systemName: "person.circle.fill")!)
+        
+        let itemsNav = generateNav(vc: ItemsListViewController(), title: "Items", image: UIImage(systemName: "suit.heart")!, selectedImage: UIImage(systemName: "suit.heart.fill")!)
+        
         let navFavorite = generateNav(vc: FavoriteViewController(), title: "Favorite", image: UIImage(systemName: "suit.heart")!, selectedImage: UIImage(systemName: "suit.heart.fill")!)
-     viewControllers = [navRepo,navUser,navFavorite]
+        
+        viewControllers = [navRepo, itemsNav ,navFavorite]
         
         let real = try! Realm()
         print(real.configuration.fileURL!.path)
@@ -28,9 +31,9 @@ class TabbarControllerViewController: UITabBarController {
         navController.tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         return navController
     }
-
- 
-    }
     
+    
+}
+
 
 

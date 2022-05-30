@@ -62,10 +62,10 @@ private extension DetailUserViewModel {
                 isRefresh = false
             }
             
-            curPage += 1
-            for item in repositories where !items.value.contains(item) {
-                items.value.append(item)
-            }
+//            curPage += 1
+//            for item in repositories where !items.value.contains(where: item) {
+//                items.value.append(item)
+//            }
             canloadMore.value = !repositories.isEmpty
         }
     }

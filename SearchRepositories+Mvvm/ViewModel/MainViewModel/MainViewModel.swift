@@ -34,7 +34,7 @@ final class MainViewModel {
         }
         
         curPage = BaseConstant.startPage
-       
+        
         items.value.removeAll()
         if text.isEmpty {
             items.value.append(contentsOf: arrayFull)
@@ -70,7 +70,7 @@ final class MainViewModel {
         if (count == 0)  {
             AppUtil.createNotification(title: "Success", body: "Successfully added to favorites", time: 0.1, identifier: "\(item.id)")
             databaseRealm.addData(object: favorite)
-           
+            
             print("thêm")
         }else{
             count = 0
@@ -79,7 +79,7 @@ final class MainViewModel {
         
     }
     
-  
+    
     
 }
 private extension MainViewModel {
@@ -91,10 +91,10 @@ private extension MainViewModel {
                 return
             }
             guard let responseJson = try? JSON(data: data) else{
-              items.value = []
-              curPage = BaseConstant.startPage
-              return
-              }
+                items.value = []
+                curPage = BaseConstant.startPage
+                return
+            }
             responseJson.arrayValue.forEach { respon in
                 let itemsJson = ItemModel(id: respon["id"].intValue,
                                           name: respon["name"].stringValue,
@@ -124,12 +124,6 @@ private extension MainViewModel {
                                           move_speed: respon["move_speed"].intValue)
                 items.value.append(itemsJson)
             }
-         
-         //   totalRepos.value = String(format: kRepositoryResult, "\(repositories.totalCount)")
-            
-//            for item in repositories where !items.value.contains(item) {
-//                items.value.append(item)
-//            }
             arrayFull = items.value
         }
     }
